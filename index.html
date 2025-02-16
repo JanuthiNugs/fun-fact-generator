@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neptune Facts</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #00c6ff, #0072ff, #00c6ff);
+            background-size: 400% 400%;
+            animation: gradientBackground 15s ease infinite;
+            color: white;
+            text-align: center;
+        }
+
+        header {
+            margin-bottom: 20px;
+        }
+
+        #fact-section {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #0072ff;
+            background-color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0072ff;
+            color: white;
+        }
+
+        @keyframes gradientBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Facts About Neptune</h1>
+    </header>
+    <main>
+        <section id="fact-section">
+            <p id="fact-display">Click the button to learn a fact about Neptune!</p>
+            <button id="new-fact-button">Show Random Fact</button>
+        </section>
+    </main>
+    <script>
+        const facts = [
+            "Neptune is the eighth and farthest planet from the Sun in our solar system.",
+            "It is the fourth-largest planet by diameter and the third-most-massive planet.",
+            "Neptune is 17 times the mass of Earth and is slightly more massive than its near-twin Uranus.",
+            "Neptune was discovered on September 23, 1846, by Johann Galle and Heinrich d'Arrest.",
+            "The planet is named after the Roman god of the sea.",
+            "Neptune has a total of 14 known moons, with Triton being the largest.",
+            "The atmosphere of Neptune is primarily composed of hydrogen, helium, and methane.",
+            "Neptune has the strongest winds in the solar system, reaching speeds of up to 1,500 miles per hour (2,400 kilometers per hour).",
+            "A day on Neptune lasts about 16 hours, while a year lasts about 165 Earth years.",
+            "Neptune has a faint ring system composed of five principal rings."
+        ];
+
+        document.getElementById('new-fact-button').addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            const factDisplay = document.getElementById('fact-display');
+            factDisplay.style.opacity = 0;
+            setTimeout(() => {
+                factDisplay.textContent = facts[randomIndex];
+                factDisplay.style.opacity = 1;
+            }, 300);
+        });
+    </script>
+</body>
+</html>
